@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o pes1ug23cs816-1 main.cpp'
+                    sh 'g++ -o pes1ug23cs816-1 main.cpp' // Compiling the C++ file
                 }
             }
         }
@@ -13,21 +13,22 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './pes1ug23cs816-1'
+                    sh './pes1ug23cs816-1' // Running the compiled file
                 }
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploy stage (Placeholder, modify as needed)'
+                echo 'Deploying application...'
+                // Add deployment steps if required
             }
         }
     }
 
     post {
         failure {
-            echo 'Pipeline failed'
+            echo 'Pipeline failed!'
         }
     }
 }
